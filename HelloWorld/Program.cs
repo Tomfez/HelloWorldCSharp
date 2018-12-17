@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HelloWorld
 {
@@ -10,16 +6,47 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            string nom;
-            string prenom;
+            //Console.WriteLine("Faites un choix: ");
 
-            Console.WriteLine("Entrez votre nom: ");
-            nom = Console.ReadLine();
-            Console.WriteLine("Entrez votre prenom: ");
-            prenom = Console.ReadLine();
+            //var choix = int.Parse(Console.ReadLine());
 
-            Console.WriteLine($"Prenom: {prenom} Nom: {nom}");
+            //switch (choix)
+            //{
+            //  case  1:
+            //        Console.WriteLine(Hand.Thumb);
+            //        break;
+            //    case 2:
+            //        Console.WriteLine(Hand.Index);
+            //        break;
+            //    case 3:
+            //        Console.WriteLine(Hand.Middle);
+            //        break;
+            //    case 4:
+            //        Console.WriteLine(Hand.Ring);
+            //        break;
+            //    case 5:
+            //        Console.WriteLine(Hand.Pinky);
+            //        break;
+            //    default:
+            //        break;
+            //}
+
+            Console.WriteLine("Faites un choix: ");
+            int intVal = int.Parse(Console.ReadLine())-1;
+
+            var allValues = Enum.GetValues(typeof(Hand));
+            var sVal = allValues.GetValue(intVal).ToString();
+            Console.WriteLine(sVal);
             Console.ReadLine();
+        }
+
+        enum Hand
+        {
+            Thumb,
+            Pinky,
+            Index,
+            Middle,
+            Ring
         }
     }
 }
