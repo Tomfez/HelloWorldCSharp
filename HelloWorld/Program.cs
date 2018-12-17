@@ -10,6 +10,16 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
+            string nom;
+            string prenom;
+
+            Console.WriteLine("Entrez votre nom: ");
+            nom = Console.ReadLine();
+            Console.WriteLine("Entrez votre prenom: ");
+            prenom = Console.ReadLine();
+
+            Console.WriteLine($"Prenom: {prenom} Nom: {nom}");
+            Console.ReadLine();
         }
     }
 }
