@@ -6,47 +6,31 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Faites un choix: ");
+            string nom;
+            string prenom;
 
-            //var choix = int.Parse(Console.ReadLine());
+            Console.WriteLine("Entrez votre nom: ");
+            nom = Console.ReadLine();
 
-            //switch (choix)
-            //{
-            //  case  1:
-            //        Console.WriteLine(Hand.Thumb);
-            //        break;
-            //    case 2:
-            //        Console.WriteLine(Hand.Index);
-            //        break;
-            //    case 3:
-            //        Console.WriteLine(Hand.Middle);
-            //        break;
-            //    case 4:
-            //        Console.WriteLine(Hand.Ring);
-            //        break;
-            //    case 5:
-            //        Console.WriteLine(Hand.Pinky);
-            //        break;
-            //    default:
-            //        break;
-            //}
+            if (String.IsNullOrWhiteSpace(nom))
+            {
+                Console.WriteLine("Le nom n'a pas été renseigné");
+            }
 
-            Console.WriteLine("Faites un choix: ");
-            int intVal = int.Parse(Console.ReadLine())-1;
+            Console.WriteLine("Entrez votre prenom: ");
+            prenom = Console.ReadLine();
 
-            var allValues = Enum.GetValues(typeof(Hand));
-            var sVal = allValues.GetValue(intVal).ToString();
-            Console.WriteLine(sVal);
+            if (String.IsNullOrWhiteSpace(prenom))
+            {
+                Console.WriteLine("Le prénom n'a pas été renseigné");
+            }
+            else
+            {
+                Console.WriteLine($"Prenom: {prenom} Nom: {nom}");
+            }
+
             Console.ReadLine();
         }
 
-        enum Hand
-        {
-            Thumb,
-            Pinky,
-            Index,
-            Middle,
-            Ring
-        }
     }
 }
