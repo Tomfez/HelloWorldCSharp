@@ -6,35 +6,56 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            string nom;
-            string prenom;
-            string[] fullname = new string[2];
+            int max;
+            int min ;
 
-            Console.WriteLine("Entrez votre nom: ");
-            nom = Console.ReadLine();
-            fullname[0] = nom;
-           
+            min = GetMinValue();
+            max = GetMaxValue();
 
-            if (String.IsNullOrWhiteSpace(fullname[0]))
+            if (max < min)
             {
-                Console.WriteLine("Le nom n'a pas été renseigné");
-            }
-
-            Console.WriteLine("Entrez votre prenom: ");
-            prenom = Console.ReadLine();
-            fullname[1] = prenom;
-
-            if (String.IsNullOrWhiteSpace(fullname[1]))
-            {
-                Console.WriteLine("Le prénom n'a pas été renseigné");
+                Console.WriteLine("Le nombre max doit être supérieur au nombre min");
             }
             else
             {
-                Console.WriteLine(fullname[0] + fullname[1]);
+                DisplayRange(min, max);
             }
 
             Console.ReadLine();
         }
 
+        private static int GetMaxValue()
+        {
+            Console.WriteLine("Entrez un nombre max: ");
+            int maxStr = int.Parse(Console.ReadLine());
+
+            if (maxStr < 0)
+            {
+                Console.WriteLine("Le nombre doit être supérieur à 0");
+            }
+
+            return maxStr;
+        }
+
+        private static int GetMinValue()
+        {
+            Console.WriteLine("Entrez un nombre min: ");
+            int minStr = int.Parse(Console.ReadLine());
+
+            if (minStr < 0)
+            {
+                Console.WriteLine("Le nombre doit être supérieur à 0");
+            }
+
+            return minStr;
+        }
+
+        private static void DisplayRange(int min, int max)
+        {
+            for (int i = min; i < max; i++)
+            {
+                Console.WriteLine(i);
+            }
+        }
     }
 }
