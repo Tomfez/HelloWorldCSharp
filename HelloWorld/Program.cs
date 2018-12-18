@@ -6,30 +6,33 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            //int max;
-            //int min ;
-            //int minVal;
-            //int maxVal;
-            int nbre;
+           
             int[] tabFibonnaci = new int[2];
 
-            //min = GetMinValue();
-            //max = GetMaxValue();
-            nbre = GetNombre();
-            //minVal = Algorithms.Min(min, max);
-            //maxVal = Algorithms.Max(min, max);
-            Algorithms.Fibonnaci(nbre);
+            bool wrongInput = true;
+            do
+            {
+                try
+                {
+                    Console.WriteLine("Veuillez entrer un nombre :");
+                    Algorithms.Fibonnaci(Console.ReadLine());
+                    wrongInput = false;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            } while (wrongInput);
 
-            //Console.WriteLine($"La valeur minimale est {minVal}");
-            //Console.WriteLine($"La valeur maximale est {maxVal}");
-
-            //Console.ReadLine();
+           
+            Console.ReadLine();
         }
 
-        private static int GetNombre()
+        private static int GetPositiveNumber()
         {
-            Console.WriteLine("Veuillez entrer un nombre :");
-           return int.Parse(Console.ReadLine());
+          
+
+            return int.Parse(Console.ReadLine());
         }
 
         private static int GetMaxValue()

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace HelloWorld
 {
@@ -29,11 +30,27 @@ namespace HelloWorld
             }
         }
 
-        public static int[] Fibonnaci(int nbre)
+        public static int[] Fibonnaci(string str)
         {
+            int nbre;
+
+            try
+            {
+                nbre = int.Parse(str);
+            }
+            catch (Exception)
+            {
+                throw new Exception("format invalide");
+            }
+
+            if (nbre < 0)
+            {
+                throw new Exception("Négatif");
+            }
+
             int[] listeFibonnaci = new int[nbre];
 
-            if (nbre < 2)
+            if (nbre < 2 && nbre >= 0)
             {
                 return new int[0];
             }
@@ -69,7 +86,7 @@ namespace HelloWorld
             //Linq
             // arrayToSort.Where(x => x > 5);
 
-            return tri ? tabEntier.arrayToSort.OrderBy(x => x).ToArray() : arrayToSort.OrderByDescending(x => x).ToArray();
+            return tri ? tabEntier.OrderBy(x => x).ToArray() : tabEntier.OrderByDescending(x => x).ToArray();
         }
     }
 }
