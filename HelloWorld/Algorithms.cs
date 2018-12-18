@@ -49,5 +49,27 @@ namespace HelloWorld
             return listeFibonnaci;
         }
 
+        public static bool IsPalindrome(string rndString)
+        {
+            int stringLength = rndString.Length;
+
+            for (int i = 0; i < stringLength; i++)
+            {
+                if (rndString[i] != rndString[stringLength - 1 - i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static int[] TriTableauEntier(int[] tabEntier, bool tri)
+        {
+            //Linq
+            // arrayToSort.Where(x => x > 5);
+
+            return tri ? tabEntier.arrayToSort.OrderBy(x => x).ToArray() : arrayToSort.OrderByDescending(x => x).ToArray();
+        }
     }
 }
