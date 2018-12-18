@@ -32,13 +32,14 @@ namespace HelloWorld
         public static int[] Fibonnaci(int nbre)
         {
             int[] listeFibonnaci = new int[nbre];
-            listeFibonnaci[0] = 0;
-            listeFibonnaci[1] = 1;
 
             if (nbre < 2)
             {
-                throw new Exception("Min value is 2");
+                return new int[0];
             }
+
+            listeFibonnaci[0] = 0;
+            listeFibonnaci[1] = 1;
 
             for (int i = 2; i <= nbre; i++)
             {
