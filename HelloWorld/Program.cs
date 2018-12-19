@@ -1,72 +1,46 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Threading;
 
 namespace HelloWorld
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-           
-            int[] tabFibonnaci = new int[2];
+            var file = System.IO.File.Create("C:/Users/Stagiaire001/Documents/Hallo.txt");
+            file.Close();
 
-            bool wrongInput = true;
-            do
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.WriteLine("Ligne a ecrire");
+            string lineWrote = Console.ReadLine();
+            Console.ForegroundColor = ConsoleColor.Green;
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            while (true)
             {
-                try
-                {
-                    Console.WriteLine("Veuillez entrer un nombre :");
-                    Algorithms.Fibonnaci(Console.ReadLine());
-                    wrongInput = false;
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                }
-            } while (wrongInput);
-
-           
-            Console.ReadLine();
-        }
-
-        private static int GetPositiveNumber()
-        {
-          
-
-            return int.Parse(Console.ReadLine());
-        }
-
-        private static int GetMaxValue()
-        {
-            Console.WriteLine("Entrez un nombre max: ");
-            int maxStr = int.Parse(Console.ReadLine());
-
-            if (maxStr < 0)
-            {
-                Console.WriteLine("Le nombre doit être supérieur à 0");
+                Thread.Sleep(500);
+                Console.WriteLine($"Temps passé depuis le début de l'éxecution {stopwatch.Elapsed}");
             }
+            stopwatch.Stop();
 
-            return maxStr;
+            //List<string> listeMot = new List<string>();
+            //ArrayList listeArray = new ArrayList();
+
+            //while (true)
+            //{
+            //    Console.WriteLine("Entrez un mot:");
+            //    var mot = Console.ReadLine();
+
+            //    listeMot.Add(mot);
+            //    listeArray.Add(mot);
+            //    Console.WriteLine(listeMot);
+            //    Console.WriteLine($"ArrayList {listeArray}");
+            //}
         }
 
-        private static int GetMinValue()
-        {
-            Console.WriteLine("Entrez un nombre min: ");
-            int minStr = int.Parse(Console.ReadLine());
-
-            if (minStr < 0)
-            {
-                Console.WriteLine("Le nombre doit être supérieur à 0");
-            }
-
-            return minStr;
-        }
-
-        private static void DisplayRange(int min, int max)
-        {
-            for (int i = min; i < max; i++)
-            {
-                Console.WriteLine(i);
-            }
-        }
     }
 }
